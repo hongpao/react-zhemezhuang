@@ -1,6 +1,6 @@
-import React, {Suspense, Component, lazy} from 'react'
+import React, {Component, lazy} from 'react'
 // import { Icon } from 'antd'
-import store from '../../../store/reducer'
+// import store from '../../../store/reducer'
 import '../mine.css';
 // import Part from './Part'
 const Part = lazy(() => import('./Part')) //懒加载
@@ -9,9 +9,9 @@ class MineMain extends Component {
     // 构造器
     constructor(props) {
         super(props)
-        store.subscribe(() =>
-            this.store = store.getState()
-        )
+        // store.subscribe(() =>
+        //     this.store = store.getState()
+        // )
         this.state = {
             date: new Date(),
             number: 0,
@@ -51,7 +51,6 @@ class MineMain extends Component {
     }
 
     render() {
-        // console.log(this.store, 'hongpao')
         return (
             <main>
                 <div className="content">
@@ -60,9 +59,6 @@ class MineMain extends Component {
                     <div onClick={()=>this.hp(100)}>{this.state.number}</div>
                     {/* <Icon type="smile" theme="outlined"/> */}
                     hongpao test ！
-                    <Suspense fallback={<div>Loading...</div>}>
-                        <Part store={this.props}/>
-                    </Suspense>
                 </div>
             </main>
         )

@@ -1,9 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+// import React from 'react';
+// import ReactDOM from 'react-dom';
 
-import Routes from './routes'
+// // import Routes from './routes'
 
-ReactDOM.render(
-    <div>hongpaiii</div>,
-    document.getElementById('root')
-);
+
+// ReactDOM.render(
+//     <App/>,
+//     document.getElementById('root')
+// );
+
+const s = [1, 2, 3]
+
+s.map(item => {
+    console.log(item)
+})

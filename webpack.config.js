@@ -5,13 +5,9 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-function resolve(dir) {
-    return path.join(__dirname, '..', dir)
-}
-
 const config = {
     // 模式
-    mode: 'development', //production
+    // mode: 'development', //production
 
     // 入口文件
     entry: {
@@ -39,22 +35,22 @@ const config = {
 
     // 匹配规则
     module: {
-        rules: [{
-            test: /\.css$/,
-            loader: [
-                'style-loader',
-                'css-loader'
-            ]
-        }, {
+        rules: [
+        //     {
+        //     test: /\.css$/,
+        //     loader: [
+        //         'style-loader',
+        //         'css-loader',
+        //         'less-loader'
+        //     ]
+        // }, {
+        {
             test: /\.js$/,
-            loader: 'babel-loader',
-            // include: [resolve('src'), resolve('test')],
-            options: {
-                presets: ['env', 'stage-2'],
-                plugins: ['transform-runtime', 'transform-object-rest-spread']
+            use: {
+                loader: 'babel-loader'
             },
-
-        }, ]
+            exclude: '/node_modules/' //exclude是定义不希望babel处理的文件
+        }]
     },
 
     //配置如何展示性能提示。例如，如果一个资源超过 250kb，webpack 会对此输出一个警告来通知你。
