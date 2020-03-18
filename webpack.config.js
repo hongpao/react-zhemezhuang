@@ -7,7 +7,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const config = {
     // 模式
-    // mode: 'development', //production
+    mode: 'development', //production
 
     // 入口文件
     entry: {
@@ -36,19 +36,12 @@ const config = {
     // 匹配规则
     module: {
         rules: [
-        //     {
-        //     test: /\.css$/,
-        //     loader: [
-        //         'style-loader',
-        //         'css-loader',
-        //         'less-loader'
-        //     ]
-        // }, {
-        {
+            {
+            test: /\.css$/,
+            use: ['style-loader', 'css-loader', 'less-loader']
+        }, {
             test: /\.js$/,
-            use: {
-                loader: 'babel-loader'
-            },
+            use: ['babel-loader'],
             exclude: '/node_modules/' //exclude是定义不希望babel处理的文件
         }]
     },
@@ -139,7 +132,7 @@ const config = {
             /**
              * html模板所在的文件路径
              */
-            template: './src/page/index.html',
+            template: './index.html',
 
             /**
              * 注入选项
