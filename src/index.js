@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-// import Routes from './routes'
+import { Provider } from 'react-redux'
+import Routes from './routes'
+import reducer from './store/reducer'
 
 class App extends React.Component {
     render() {
@@ -12,12 +13,8 @@ class App extends React.Component {
 }
 
 ReactDOM.render(
-    <App/> ,
+    <Provider store={reducer}>
+        <Routes/>
+    </Provider>,
     document.getElementById('root')
-);
-
-// const s = [1, 2, 3]
-
-// s.map(item => {
-//     console.log(item)
-// })
+)

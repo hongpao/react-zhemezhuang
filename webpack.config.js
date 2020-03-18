@@ -37,7 +37,7 @@ const config = {
     module: {
         rules: [
             {
-            test: /\.css$/,
+            test: /\.(css|less)$/,
             use: ['style-loader', 'css-loader', 'less-loader']
         }, {
             test: /\.js$/,
@@ -59,6 +59,7 @@ const config = {
 
             /**
              * 顾名思义， 设置生成的 html 文件的标题。
+             * 需要在模本页面设置，然后替换文案
              */
             title: 'hongpao',
 

@@ -9,7 +9,7 @@ import {
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer'
 
-// import Mine from './containers/mine/actions';
+import Mine from './containers/mine/actions';
 
 /**
  * 页面级父组件
@@ -33,12 +33,12 @@ const routes = () => {
     return (
         <Router history={browserHistory}>
             <Route path="/" component={App}>
-                <div>rrr</div>
-                {/* <IndexRoute component={Mine} /> */}
+                <IndexRoute component={Mine} />
                 {/* <Route path="/mine" component={Mine}/> */}
             </Route>
         </Router>
     )
 }
 
-export default routes;
+export default App;
+// export default routes;
