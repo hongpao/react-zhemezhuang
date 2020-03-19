@@ -40,5 +40,4 @@ const routes = () => {
     )
 }
 
-export default App;
-// export default routes;
+export default routes;

@@ -1,7 +1,7 @@
 import React, {Component, lazy} from 'react'
 // import { Icon } from 'antd'
 // import store from '../../../store/reducer'
-import '../mine.css';
+import '../mine.less';
 // import Part from './Part'
 const Part = lazy(() => import('./Part')) //懒加载
 
