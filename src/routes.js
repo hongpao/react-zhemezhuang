@@ -6,6 +6,7 @@ import {
     browserHistory
 } from 'react-router';
 
+import './base.less'
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer'
 
@@ -34,10 +35,10 @@ const routes = () => {
         <Router history={browserHistory}>
             <Route path="/" component={App}>
                 <IndexRoute component={Mine} />
-                {/* <Route path="/mine" component={Mine}/> */}
+                <Route path="/mine" component={Mine}/>
             </Route>
         </Router>
     )
 }
 
-export default routes;
+export default routes

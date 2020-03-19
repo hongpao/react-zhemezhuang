@@ -2,13 +2,13 @@
     "name": "react-zhemezhuang",
     "version": "1.0.0",
     "description": "怎么装？这么装！",
-    "main": "index.js",
     "repository": "https://github.com/hongpao/react-zhemezhuang.git",
     "author": "hujunhao <hongpao@2dfire.com>",
     "license": "MIT",
     "scripts": {
         "start": "webpack-dev-server --open --config webpack.dev.js",
-        "build": "webpack --config webpack.prod.js"
+        "watch": "webpack --watch",
+        "build": "NODE_ENV=production webpack --config webpack.prod.js"
     },
     "devDependencies": {
         "@babel/core": "^7.5.0",
@@ -20,6 +20,7 @@
         "babel-polyfill": "^6.26.0",
         "clean-webpack-plugin": "^3.0.0",
         "css-loader": "^3.4.2",
+        "file-loader": "^6.0.0",
         "html-webpack-plugin": "^3.2.0",
         "less": "^3.11.1",
         "less-loader": "^5.0.0",
@@ -47,5 +48,6 @@
         "> 1%",
         "last 2 versions",
         "not ie <= 8"
-    ]
+    ],
+    "sideEffects": false
 }

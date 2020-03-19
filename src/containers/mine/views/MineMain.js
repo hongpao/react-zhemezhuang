@@ -58,7 +58,8 @@ class MineMain extends Component {
                     <input type="text" name="hong" value={this.state.name} onChange={this.handleInputChange}/>
                     <div onClick={()=>this.hp(100)}>{this.state.number}</div>
                     {/* <Icon type="smile" theme="outlined"/> */}
-                    hongpao test ！
+                    hongpao test！！ hahah
+                    hongpao test！！ hahah
                 </div>
             </main>
         )
