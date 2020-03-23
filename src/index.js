@@ -28,6 +28,8 @@ class App extends React.Component {
     //异常情况捕获，上传错误日志信息
     componentDidCatch(error, errorInfo) {
         // logErrorToMyService(error, errorInfo)
+        console.warn(error)
+        console.warn(errorInfo)
     }
 
     render() {

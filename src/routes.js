@@ -3,7 +3,8 @@ import {
     Router,
     Route,
     IndexRoute,
-    browserHistory
+    // browserHistory
+    hashHistory
 } from 'react-router';
 
 import Login from './containers/login/views/LoginMain';
@@ -14,7 +15,7 @@ import Mine from './containers/mine/actions';
  */
 const routes = (props) => {
     return (
-        <Router history={browserHistory}>
+        <Router history={hashHistory}>
             <Route path="/" component={props.app}>
                 <IndexRoute component={Login} />
                 <Route path="/mine" component={Mine}/>

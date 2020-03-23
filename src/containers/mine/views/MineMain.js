@@ -2,8 +2,8 @@ import React, {Component, lazy} from 'react'
 // import { Icon } from 'antd'
 // import store from '../../../store/reducer'
 import '../mine.less';
-// import Part from './Part'
-const Part = lazy(() => import('./Part')) //懒加载
+import Part from './Part'
+// const Part = lazy(() => import('./Part')) //懒加载
 
 class MineMain extends Component {
     // 构造器
@@ -61,6 +61,7 @@ class MineMain extends Component {
                     hongpao test！！ hahah
                     hongpao test！！ hahah
                 </div>
+                <Part store={this.props}/>
             </main>
         )
     }

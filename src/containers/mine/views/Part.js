@@ -5,6 +5,7 @@ const useCountDown = (num) => {
     const [seconds, setSecond] = useState(num)
     
     useEffect(() => {
+        console.log('part useEffect')
         setTimeout(() => {
             if (seconds > 0) {
                 setSecond(c => c - 1);
@@ -30,7 +31,6 @@ const Part = (props) => {
             </div> 
             {seconds > 0 ? `${seconds}s后可点击` : '点击开始倒计时'}
             <Button onClick={() => setSecond(59)}>倒计时开始</Button>
-            <Button onClick={() => props.actions()}>操作</Button>
             <Button onClick={() => props.store.haha()}>操作store</Button>
         </div>
     )

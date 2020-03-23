@@ -22,11 +22,11 @@ class LoginMain extends Component {
     }
 
     componentWillUnmount() {
-        console.log(e, 'componentWillUnmount')
+        console.log(3, 'componentWillUnmount')
     }
 
     shouldComponentUpdate() {
-
+        return false
     }
 
     // 路由跳转
