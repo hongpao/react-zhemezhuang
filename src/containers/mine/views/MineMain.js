@@ -56,7 +56,7 @@ class MineMain extends Component {
                 <div className="content">
                     <h2>It is {this.state.date.toLocaleTimeString()}</h2>
                     <input type="text" name="hong" value={this.state.name} onChange={this.handleInputChange}/>
-                    <div onClick={()=>this.hp(100)}>{this.state.number}</div>
+                    <div onClick={()=>this.hp(990)}>{this.state.number}</div>
                     {/* <Icon type="smile" theme="outlined"/> */}
                     hongpao test！！ hahah
                     hongpao test！！ hahah

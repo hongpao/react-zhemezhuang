@@ -24,7 +24,7 @@ module.exports = {
 
     output: {
         filename: '[name].[hash].js',
-        path: path.resolve(__dirname, 'release'),
+        path: path.resolve(__dirname, '../release'),
         publicPath: '/',
         chunkFilename: "[name].[hash:6].js"
     },
@@ -35,6 +35,13 @@ module.exports = {
             '@': path.resolve(__dirname, '../src'),
             'BASE_URL': getConfigPath(),
         }
+    },
+
+    //配置如何展示性能提示。例如，如果一个资源超过 250kb，webpack 会对此输出一个警告来通知你。
+    performance: {
+        hints: false, // 打开/关闭提示
+        maxEntrypointSize: 400000, //此选项根据入口起点的最大体积，控制 webpack 何时生成性能提示。
+        maxAssetSize: 100000, //资源(asset)是从 webpack 生成的任何文件。
     },
 
     module: {

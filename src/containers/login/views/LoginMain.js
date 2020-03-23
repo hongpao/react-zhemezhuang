@@ -11,10 +11,22 @@ class LoginMain extends Component {
         }
     }
 
+    // render 之前调用 == constructor()
+    // componentWillMount() {
+    //     console.log(1, 'componentWillMount')
+    // }
+
+    // render 之后调用
     componentDidMount() {
+         console.log(2, 'componentDidMount')
     }
 
     componentWillUnmount() {
+        console.log(e, 'componentWillUnmount')
+    }
+
+    shouldComponentUpdate() {
+
     }
 
     // 路由跳转
