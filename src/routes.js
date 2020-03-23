@@ -10,6 +10,7 @@ import './base.less'
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer'
 
+import Login from './containers/login/views/LoginMain';
 import Mine from './containers/mine/actions';
 
 /**
@@ -19,9 +20,9 @@ class App extends Component {
     render() {
         return (
             <div id="J-website">
-                <Header/>
+                {/* <Header/> */}
                 {this.props.children}
-                <Footer/>
+                {/* <Footer/> */}
             </div>
         )
     }
@@ -34,7 +35,7 @@ const routes = () => {
     return (
         <Router history={browserHistory}>
             <Route path="/" component={App}>
-                <IndexRoute component={Mine} />
+                <IndexRoute component={Login} />
                 <Route path="/mine" component={Mine}/>
             </Route>
         </Router>

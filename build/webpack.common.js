@@ -8,13 +8,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const {
     CleanWebpackPlugin
 } = require('clean-webpack-plugin')
-const config = require('./config/index.js')
+const config = require('../config/index.js')
 
 // 获取 项目 环境 api 路径 , 如果是 noble 部署 则使用 prod
 function getConfigPath() {
     let env = process.env.NODE_ENV === 'production' ? 'publish' : config.env
     console.log('> Get Api Config:', env);
-    return path.resolve(__dirname, './config/env/', env);
+    return path.resolve(__dirname, '../config/env/', env);
 }
 
 module.exports = {
@@ -24,7 +24,9 @@ module.exports = {
 
     output: {
         filename: '[name].[hash].js',
-        path: path.resolve(__dirname, 'release')
+        path: path.resolve(__dirname, 'release'),
+        publicPath: '/',
+        chunkFilename: "[name].[hash:6].js"
     },
 
     resolve: {
@@ -38,7 +40,7 @@ module.exports = {
     module: {
         rules: [{
             test: /\.(css|less)$/,
-            use: ['style-loader', 'css-loader', 'less-loader']
+            use: ['style-loader', 'css-loader', 'less-loader', 'postcss-loader']
         }, {
             test: /\.(png|svg|jpg|gif)$/,
             use: ['file-loader']
@@ -65,7 +67,7 @@ module.exports = {
              * 顾名思义， 设置生成的 html 文件的标题。
              * 需要在模本页面设置，然后替换文案
              */
-            title: 'hongpao',
+            title: '二维火数据展示中心',
 
             /**
              * hash选项的作用是 给生成的 js 文件一个独特的 hash 值

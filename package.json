@@ -6,9 +6,9 @@
     "author": "hujunhao <hongpao@2dfire.com>",
     "license": "MIT",
     "scripts": {
-        "start": "webpack-dev-server --open --config webpack.dev.js",
+        "start": "webpack-dev-server --open --config ./build/webpack.dev.js",
         "watch": "webpack --watch",
-        "build": "NODE_ENV=production webpack --config webpack.prod.js"
+        "build": "NODE_ENV=production webpack --config ./build/webpack.prod.js"
     },
     "devDependencies": {
         "@babel/core": "^7.5.0",
@@ -16,6 +16,7 @@
         "@babel/plugin-transform-runtime": "^7.5.0",
         "@babel/preset-env": "^7.5.0",
         "@babel/preset-react": "^7.0.0",
+        "autoprefixer": "^9.7.4",
         "babel-loader": "^8.0.6",
         "babel-polyfill": "^6.26.0",
         "clean-webpack-plugin": "^3.0.0",
@@ -24,6 +25,7 @@
         "html-webpack-plugin": "^3.2.0",
         "less": "^3.11.1",
         "less-loader": "^5.0.0",
+        "postcss-loader": "^3.0.0",
         "style-loader": "^1.1.3",
         "uglifyjs-webpack-plugin": "^2.2.0",
         "webpack": "^4.42.0",
