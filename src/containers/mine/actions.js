@@ -8,11 +8,15 @@ import {
 import Types from '../../utils/types'
 import MineMain from './views/MineMain'
 import Requester from '@/http/requester'
+import APIs from '@/http/apis'
+import {
+    Modal
+} from 'antd'
 
 //需要渲染什么数据
 const mapStateToProps = state => {
     return {
-        main: state.main
+        number: state.number
     }
 }
 
@@ -21,34 +25,46 @@ const mapDispatchToProps = dispatch => {
     return {
         // 初始化加载页面数据
         startInitPageData: () => {
-            let params = {
-                url: '',
-                data: {}
+            let options = {
+                url: APIs.GET_ADDRESS_LIST,
+                data: {
+                    sub_area_type: 'province',
+                    id: '001',
+                    need_sub_area: true
+                }
             }
-            ajax(params).then(res => {
 
+            ajaxAction(options).then(res => {
+                console.log(res)
             })
         },
+
         add: (params) => {
-            let m = parseInt(Math.random() * 10) + params
             dispatch({
                 type: Types.TEST,
-                m
+                number: parseInt(Math.random() * 100)
             })
         }
     }
 }
 
 /**
- * 发起异步请求
- * @param {*} params 
+ * 发送异步请求
+ * @param {*} options 
  */
-const ajax = (params) => {
+const ajaxAction = (options) => {
     return new Promise((resolve, reject) => {
-        Requester.get(params).then(res => {
+        Requester.get(options).then(res => {
             resolve(res)
         }).catch(error => {
-            reject(error)
+            Modal.error({
+                title: 'This is an error message',
+                content: error.message,
+                okText: '重新加载',
+                onOk: () => {
+                    ajaxAction(options)
+                }
+            })
         })
     })
 }

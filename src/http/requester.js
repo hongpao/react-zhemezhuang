@@ -4,15 +4,16 @@
 
 import Axios from 'axios'
 import BASE_URL from 'BASE_URL'
+import GATEWAY from '@/utils/gateway'
+import Storage from '@/utils/storage'
 
 class Requester {
 
     //获取token
     getToken() {
         // 获取用户缓存信息
-        // let tokenInfo = Storage.get('token') || {}
-        // return tokenInfo.token || ''
-        return ''
+        let tokenInfo = Storage.get('token') || {}
+        return tokenInfo.token || 'FL6ksrB5/QnZHw/TLZwWf8+32iRvtmN4FRCblHnqiNIuD5/0ck4aeNA0mYXO0VXrTnx8J0xky7NcBxjJRVhU/kIUtPzXWdyY6LU+oQQ6NFM='
     }
 
     //格式化兼容数据

@@ -13,7 +13,7 @@ import states from './states'
 const reducer = (state = states, action) => {
     switch (action.type) {
         case Types.TEST:
-            state.main += action.m
+            state.number = action.number
             return state
         default:
             return state

@@ -7,7 +7,7 @@ let states = {
     // 界面状态
     status: 0,
 
-    main: 1
+    number: 1
 }
 
 export default states

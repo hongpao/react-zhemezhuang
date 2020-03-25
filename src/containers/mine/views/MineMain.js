@@ -1,8 +1,13 @@
 import React, {Component, lazy} from 'react'
 // import { Icon } from 'antd'
 import store from '@/store/reducer'
+import Utils from '@/utils'
 import '../mine.less';
+import {
+    Button
+} from 'antd'
 import Part from './Part'
+
 // const Part = lazy(() => import('./Part')) //懒加载
 
 class MineMain extends Component {
@@ -12,7 +17,7 @@ class MineMain extends Component {
         this.state = {
             date: new Date(),
             status: props.status,
-            main: props.main
+            number: props.number
         }
 
         // 为了在回调中使用 `this`，这个绑定是必不可少的
@@ -23,13 +28,13 @@ class MineMain extends Component {
         this.timerID = setInterval(() => this.tick(), 1000)
 
         //初始化数据，发起异步请求
-        this.props.startInitPageData()
+        // this.props.startInitPageData()
 
         // 发起监听，初始化的时候不会执行
         store.subscribe(() => {
             let states = store.getState()
             this.setState({
-                main: states.main
+                number: states.number
             })
         })
     }
@@ -52,12 +57,10 @@ class MineMain extends Component {
             <main>
                 <div className="content">
                     <h2>It is {this.state.date.toLocaleTimeString()}</h2>
-                    <div>{this.state.main}</div>
-                    hongpao test！！ hahah
-                    hongpao test！！ hahah
+                    <h3>{this.state.number}</h3>
+                    <Button type="primary" onClick={() => this.props.add()}>redux btn</Button>
                 </div>
-                <div onClick={() => this.props.add(123)}>redux btn</div>
-                {/* <Part store={this.props}/> */}
+                <Part store={this.props}/>
             </main>
         )
     }
