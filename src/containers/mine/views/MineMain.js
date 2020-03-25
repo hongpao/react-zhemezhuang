@@ -17,7 +17,8 @@ class MineMain extends Component {
         this.state = {
             date: new Date(),
             status: props.status,
-            number: props.number
+            number: props.number,
+            numberArray: props.numberArray
         }
 
         // 为了在回调中使用 `this`，这个绑定是必不可少的
@@ -34,7 +35,8 @@ class MineMain extends Component {
         store.subscribe(() => {
             let states = store.getState()
             this.setState({
-                number: states.number
+                number: states.number,
+                numberArray: states.numberArray
             })
         })
     }
@@ -55,13 +57,15 @@ class MineMain extends Component {
     render() {
         let {
             date,
-            number
+            number,
+            numberArray
         } = this.state
         return (
             <main>
                 <div className="content">
                     <h2>It is {date.toLocaleTimeString()}</h2>
                     <h3>{number}</h3>
+                    <h3>{numberArray.join(' - ')}</h3>
                     <Button type="primary" onClick={() => this.props.add()}>redux btn</Button>
                 </div>
                 <Part store={this.props}/>

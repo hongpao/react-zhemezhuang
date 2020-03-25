@@ -14,6 +14,7 @@ const reducer = (state = states, action) => {
     switch (action.type) {
         case Types.TEST:
             state.number = action.number
+            state.numberArray = action.numberArray
             return state
         default:
             return state

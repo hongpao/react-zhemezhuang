@@ -17,7 +17,8 @@ import {
 const mapStateToProps = state => {
     return {
         status: state.status,
-        number: state.number
+        number: state.number,
+        numberArray: state.numberArray
     }
 }
 
@@ -40,10 +41,20 @@ const mapDispatchToProps = dispatch => {
             })
         },
 
+        /**
+         * Math.random()
+         * 函数返回一个浮点, 伪随机数在范围从0到小于1， 
+         * 也就是说， 从0（ 包括0） 往上， 但是不包括1（ 排除1）
+         */
         add: (params) => {
+            let numberArray = []
+            for (let i = 0; i < 1000; i++) {
+                numberArray.push(parseInt(Math.random() * 100) + 1)
+            }
             dispatch({
                 type: Types.TEST,
-                number: parseInt(Math.random() * 100)
+                number: parseInt(Math.random() * 100),
+                numberArray
             })
         }
     }
