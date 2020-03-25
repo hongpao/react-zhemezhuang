@@ -16,6 +16,7 @@ import {
 //需要渲染什么数据
 const mapStateToProps = state => {
     return {
+        status: state.status,
         number: state.number
     }
 }

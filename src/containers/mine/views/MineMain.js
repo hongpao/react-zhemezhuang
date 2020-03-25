@@ -53,11 +53,15 @@ class MineMain extends Component {
     }
 
     render() {
+        let {
+            date,
+            number
+        } = this.state
         return (
             <main>
                 <div className="content">
-                    <h2>It is {this.state.date.toLocaleTimeString()}</h2>
-                    <h3>{this.state.number}</h3>
+                    <h2>It is {date.toLocaleTimeString()}</h2>
+                    <h3>{number}</h3>
                     <Button type="primary" onClick={() => this.props.add()}>redux btn</Button>
                 </div>
                 <Part store={this.props}/>
