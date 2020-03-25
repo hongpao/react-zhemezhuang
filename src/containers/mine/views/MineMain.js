@@ -1,6 +1,6 @@
 import React, {Component, lazy} from 'react'
 // import { Icon } from 'antd'
-// import store from '../../../store/reducer'
+import store from '@/store/reducer'
 import '../mine.less';
 import Part from './Part'
 // const Part = lazy(() => import('./Part')) //懒加载
@@ -9,13 +9,10 @@ class MineMain extends Component {
     // 构造器
     constructor(props) {
         super(props)
-        // store.subscribe(() =>
-        //     this.store = store.getState()
-        // )
         this.state = {
             date: new Date(),
-            number: 0,
-            name: ''
+            status: props.status,
+            main: props.main
         }
 
         // 为了在回调中使用 `this`，这个绑定是必不可少的
@@ -23,14 +20,25 @@ class MineMain extends Component {
     }
 
     componentDidMount() {
-        // store.subscribe(() =>
-        //     console.log(store.getState())
-        // )
         this.timerID = setInterval(() => this.tick(), 1000)
+
+        //初始化数据，发起异步请求
+        this.props.startInitPageData()
+
+        // 发起监听，初始化的时候不会执行
+        store.subscribe(() => {
+            let states = store.getState()
+            this.setState({
+                main: states.main
+            })
+        })
     }
 
     componentWillUnmount() {
         clearInterval(this.timerID)
+
+        // 注意 subscribe() 返回一个函数用来注销监听器
+        store.subscribe(() => console.log(store.getState()))()
     }
 
     tick() {
@@ -39,29 +47,17 @@ class MineMain extends Component {
         })
     }
 
-    // 箭头函数，不需要绑定this
-    hp = (n) => {
-        this.setState(() => ({
-            number: n
-        }))
-    }
-
-    handleInputChange = (event) => {
-        console.log(event)
-    }
-
     render() {
         return (
             <main>
                 <div className="content">
                     <h2>It is {this.state.date.toLocaleTimeString()}</h2>
-                    <input type="text" name="hong" value={this.state.name} onChange={this.handleInputChange}/>
-                    <div onClick={()=>this.hp(990)}>{this.state.number}</div>
-                    {/* <Icon type="smile" theme="outlined"/> */}
+                    <div>{this.state.main}</div>
                     hongpao test！！ hahah
                     hongpao test！！ hahah
                 </div>
-                <Part store={this.props}/>
+                <div onClick={() => this.props.add(123)}>redux btn</div>
+                {/* <Part store={this.props}/> */}
             </main>
         )
     }

@@ -4,8 +4,8 @@ import { Button } from 'antd'
 const useCountDown = (num) => {
     const [seconds, setSecond] = useState(num)
     
+    // 类似于 负组件的componentDidMount
     useEffect(() => {
-        console.log('part useEffect')
         setTimeout(() => {
             if (seconds > 0) {
                 setSecond(c => c - 1);

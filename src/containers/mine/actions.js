@@ -2,9 +2,12 @@
  * 页面逻辑处理
  * created by hongpao 2020.1.11
  */
-import { connect } from 'react-redux'
+import {
+    connect
+} from 'react-redux'
 import Types from '../../utils/types'
 import MineMain from './views/MineMain'
+import Requester from '@/http/requester'
 
 //需要渲染什么数据
 const mapStateToProps = state => {
@@ -16,24 +19,37 @@ const mapStateToProps = state => {
 //需要触发什么行为
 const mapDispatchToProps = dispatch => {
     return {
-        haha: () => haha(dispatch),
-        PayIncrease: () => dispatch({
-            type: '涨工资'
-        }),
-        PayDecrease: () => dispatch({
-            type: '扣工资'
-        })
+        // 初始化加载页面数据
+        startInitPageData: () => {
+            let params = {
+                url: '',
+                data: {}
+            }
+            ajax(params).then(res => {
+
+            })
+        },
+        add: (params) => {
+            let m = parseInt(Math.random() * 10) + params
+            dispatch({
+                type: Types.TEST,
+                m
+            })
+        }
     }
 }
 
 /**
- * 
- * @param {*} dispatch 
+ * 发起异步请求
+ * @param {*} params 
  */
-const haha = (dispatch) => {
-    dispatch({
-        type: Types.TEST,
-        df: 333
+const ajax = (params) => {
+    return new Promise((resolve, reject) => {
+        Requester.get(params).then(res => {
+            resolve(res)
+        }).catch(error => {
+            reject(error)
+        })
     })
 }
 

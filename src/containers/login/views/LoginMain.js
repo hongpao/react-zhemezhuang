@@ -22,7 +22,7 @@ class LoginMain extends Component {
     }
 
     componentWillUnmount() {
-        console.log(3, 'componentWillUnmount')
+        console.log(3, 'login componentWillUnmount')
     }
 
     shouldComponentUpdate() {
