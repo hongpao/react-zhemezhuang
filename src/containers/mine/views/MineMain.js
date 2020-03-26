@@ -26,7 +26,7 @@ class MineMain extends Component {
     }
 
     componentDidMount() {
-        this.timerID = setInterval(() => this.tick(), 1000)
+        // this.timerID = setInterval(() => this.tick(), 1000)
 
         //初始化数据，发起异步请求
         // this.props.startInitPageData()
