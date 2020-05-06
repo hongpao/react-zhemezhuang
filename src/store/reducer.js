@@ -5,7 +5,8 @@
  */
 
 import {
-    createStore
+    createStore,
+    applyMiddleware
 } from 'redux'
 import Types from '../utils/types'
 import states from './states'

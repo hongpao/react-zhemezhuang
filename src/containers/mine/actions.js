@@ -36,8 +36,14 @@ const mapDispatchToProps = dispatch => {
                 }
             }
 
-            ajaxAction(options).then(res => {
-                console.log(res)
+            // ajaxAction(options).then(res => {
+            //     console.log(res)
+            // })
+
+            dispatch({
+                type: Types.TEST,
+                number: parseInt(Math.random() * 100),
+                numberArray: [2, 3]
             })
         },
 

@@ -9,6 +9,11 @@ import './base.less'
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer'
 
+//react性能查看工具
+// import Perf from 'react-addons-perf'
+// const win = window
+// win.Perf = Perf
+
 /**
  * 页面级父组件
  */

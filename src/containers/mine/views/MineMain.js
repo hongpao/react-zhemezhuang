@@ -29,7 +29,7 @@ class MineMain extends Component {
         // this.timerID = setInterval(() => this.tick(), 1000)
 
         //初始化数据，发起异步请求
-        // this.props.startInitPageData()
+        this.props.startInitPageData()
 
         // 发起监听，初始化的时候不会执行
         store.subscribe(() => {

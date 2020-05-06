@@ -17,7 +17,8 @@ const routes = (props) => {
     return (
         <Router history={hashHistory}>
             <Route path="/" component={props.app}>
-                <IndexRoute component={Login} />
+                {/* <IndexRoute component={Login} /> */}
+                <IndexRoute component={Mine} />
                 <Route path="/mine" component={Mine}/>
             </Route>
         </Router>
